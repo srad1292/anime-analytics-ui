@@ -1,0 +1,29 @@
+.app-content {
+    margin: 0 0.5rem;
+}
+
+nav {
+    background-color: black;
+    padding: 1rem 0.5rem 0.25rem 0.5rem;
+    h2 {
+        color: white;
+        display: inline;
+        margin-right: 1.25rem;
+    }
+
+    a {
+        color: white;
+        margin-right: 0.5rem;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        &.active {
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+    }
+}
