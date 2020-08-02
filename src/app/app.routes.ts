@@ -4,31 +4,37 @@ import { TestComponent1Component } from './test-component1/test-component1.compo
 import { TestComponent2Component } from './test-component2/test-component2.component';
 
 export const appRoutes: Routes = [
+    // {
+    //     path: '',
+    //     children: [
+    //         {
+    //             path: 'analytics',
+    //             component: NavigationLayoutComponent,
+    //             loadChildren: () => import('./feature-modules/analytics/analytics.module').then(m => m.AnalyticsModule)
+    //         },
+    //         {
+    //             path: '',
+    //             pathMatch: 'full',
+    //             redirectTo: 'analytics'
+    //         },
+    //         {
+    //             path: '**',
+    //             redirectTo: 'analytics'
+    //         }
+    //     ]
+    // },
+    {
+        path: 'analytics',
+        component: NavigationLayoutComponent,
+        loadChildren: () => import('./feature-modules/analytics/analytics.module').then((m) => m.AnalyticsModule)
+    },
     {
         path: '',
-        component: NavigationLayoutComponent,
-        children: [
-            {
-                path: 'componentA',
-                component: TestComponent1Component
-            },
-            {
-                path: 'componentB',
-                component: TestComponent2Component
-            },
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'componentA'
-            },
-            {
-                path: '**',
-                redirectTo: 'componentA'
-            }
-        ]
+        pathMatch: 'full',
+        redirectTo: 'analytics'
     },
     {
         path: '**',
-        redirectTo: ''
+        component: TestComponent1Component
     }
 ]

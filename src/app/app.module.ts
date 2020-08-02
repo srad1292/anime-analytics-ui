@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationLayoutComponent } from './core/layouts/navigation-layout/navigation-layout.component';
 import { TestComponent1Component } from './test-component1/test-component1.component';
@@ -17,6 +17,7 @@ import { appRoutes } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
