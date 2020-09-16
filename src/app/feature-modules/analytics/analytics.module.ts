@@ -7,6 +7,7 @@ import { analyticsRoutes } from './analytics.routes';
 import { OverviewResolver } from './resolvers/overview-resolver';
 import { CountComponent } from './components/count/count.component';
 import { HighestRatedComponent } from './components/highest-rated/highest-rated.component';
+import { LowestRatedComponent } from './components/lowest-rated/lowest-rated.component';
 
 
 
@@ -14,7 +15,8 @@ import { HighestRatedComponent } from './components/highest-rated/highest-rated.
   declarations: [
     OverviewComponent,
     CountComponent,
-    HighestRatedComponent
+    HighestRatedComponent,
+    LowestRatedComponent
   ],
   imports: [
     CommonModule,

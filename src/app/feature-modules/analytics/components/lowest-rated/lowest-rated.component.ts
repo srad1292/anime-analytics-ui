@@ -1,18 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OverviewRatings, OverviewAnimeRating } from '../../models/overview-ratings.interface';
 import { PAGINATION_DEFAULTS } from '../../consts/pagination-defaults.const';
-import { AnalyticsService } from '../../services/analytics.service';
 import { OverviewRatingsPagination } from '../../models/overview-ratings-pagination.interface';
+import { AnalyticsService } from '../../services/analytics.service';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-highest-rated',
-  templateUrl: './highest-rated.component.html',
-  styleUrls: ['./highest-rated.component.scss']
+  selector: 'app-lowest-rated',
+  templateUrl: './lowest-rated.component.html',
+  styleUrls: ['./lowest-rated.component.scss']
 })
-export class HighestRatedComponent implements OnInit {
+export class LowestRatedComponent implements OnInit {
 
-  @Input() highestRated: OverviewRatings;
+  @Input() lowestRated: OverviewRatings;
 
   totalRatings: number;
 
@@ -35,9 +35,9 @@ export class HighestRatedComponent implements OnInit {
   constructor(private _analyticsService: AnalyticsService) { }
 
   ngOnInit(): void {
-    this.totalRatings = this.highestRated?.count ? this.highestRated?.count : 0;
-    this.ratings = !!this.highestRated?.data ? this.highestRated?.data : [];
-    console.log({highestRated: this.highestRated});
+    this.totalRatings = this.lowestRated?.count ? this.lowestRated?.count : 0;
+    this.ratings = !!this.lowestRated?.data ? this.lowestRated?.data : [];
+    console.log({lowestRated: this.lowestRated});
     console.log({ratings: this.ratings})
     this.pages = Math.ceil(this.totalRatings / PAGINATION_DEFAULTS.records);
     this.currentPage = 1;
@@ -66,12 +66,12 @@ export class HighestRatedComponent implements OnInit {
       page: this.currentPage,
     };
 
-    this._analyticsService.getHighestRated(options)
+    this._analyticsService.getLowestRated(options)
     .pipe(take(1))
-    .subscribe((highestRated: OverviewRatings) => {
+    .subscribe((lowestRated: OverviewRatings) => {
       this.loadingRatings = false;
-      this.totalRatings = highestRated?.count ? highestRated?.count : 0;
-      this.ratings = !!highestRated?.data ? highestRated?.data : [];
+      this.totalRatings = lowestRated?.count ? lowestRated?.count : 0;
+      this.ratings = !!lowestRated?.data ? lowestRated?.data : [];
       this.pages = Math.ceil(this.totalRatings / PAGINATION_DEFAULTS.records);
       this.disablePrevious = this.currentPage === 1;
       this.disableNext = !this.pages || this.currentPage === this.pages;
