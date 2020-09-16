@@ -1,0 +1,45 @@
+<div class="table-container">
+    <h2>
+        Highest Rated Anime.  Rating: {{highestRated?.rating}}
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns">
+                    {{ column }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entry of ratings">
+                <td>
+                    {{entry?.title}}
+                </td>
+
+                <td>
+                    {{entry?.titleEnglish}}
+                </td>
+
+                <td>
+                    {{entry?.score}}
+                </td>
+
+                <td>
+                    {{entry?.episodes}}
+                </td>
+
+                <td>
+                    {{entry?.animeListFinishedDate}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="paginator">
+    <div  (click)="goToPreviousPage()" [disabled]="disablePrevious">
+        <span>Previous</span>
+    </div>
+    <div  (click)="goToNextPage()" [disabled]="disableNext">
+        <span>Next</span>
+    </div>
+</div>

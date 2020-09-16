@@ -1,0 +1,49 @@
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+// tr:hover {
+//     background-color: #ddd;
+// }
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5070a3;
+  color: white;
+}
+
+.paginator {
+    padding-top: 0.5rem;
+
+    div {
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 8px;
+        padding-left: 4px;
+        color: #5070a3;
+        font-weight: bold;
+
+      &:hover {
+          color: #304c78;
+      }
+    }
+}
+
+
+
+// .table-container {
+//     min-width: 1200px;
+//     overflow: scroll;
+// }
+

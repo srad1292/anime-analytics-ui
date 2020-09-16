@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OverviewCounts } from '../../models/overview-counts.interface';
+import { IOverviewResolver } from '../../resolvers/overview-resolver';
 
 @Component({
   selector: 'app-overview',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  overviewData: IOverviewResolver;
+  overviewCounts: OverviewCounts;
+
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
+    this.overviewData = this._activatedRoute.snapshot.data.overviewData;
+    this.overviewCounts = this.overviewData?.counts;
   }
 
 }

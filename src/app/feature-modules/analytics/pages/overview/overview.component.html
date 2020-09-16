@@ -1,1 +1,21 @@
-<p>overview works!</p>
+<h1>Overview</h1>
+
+<div>
+    <div fxFlex="100%" fxFlexLayout="row" fxLayoutGap="1.5rem">
+        <div fxFlex="0 0 calc(25%-1.5rem)">
+            <app-count title="Total Completed" [count]="overviewCounts?.totalCount"></app-count>
+        </div>
+    
+        <div fxFlex="0 0 calc(25%-1.5rem)">
+            <app-count title="Total Rated" [count]="overviewCounts?.ratedCount"></app-count>
+        </div>
+
+        <div fxFlex="0 0 calc(25%-1.5rem)">
+            <app-count title="Average Rating" isFloat="true" [count]="overviewCounts?.averageRating"></app-count>
+        </div>
+    </div>    
+</div>
+
+<div class="rating-list-container">
+    <app-highest-rated [highestRated]="overviewData?.highestRated"></app-highest-rated>
+</div>

@@ -6,6 +6,7 @@ import { AnalyticsService } from '../services/analytics.service';
 import { forkJoin, of, Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { overviewRatingsPaginationDefault } from '../models/overview-ratings-pagination.interface';
+import { PAGINATION_DEFAULTS } from '../consts/pagination-defaults.const';
 
 export interface IOverviewResolver {
     counts: OverviewCounts;
@@ -21,11 +22,10 @@ export class OverviewResolver implements Resolve<IOverviewResolver> {
     }
 
     resolve(): Observable<IOverviewResolver> {
-        const paginationOptions = overviewRatingsPaginationDefault;
         return forkJoin([
             this._analyticsService.getOverviewCounts(),
-            this._analyticsService.getHighestRated(paginationOptions),
-            this._analyticsService.getLowestRated(paginationOptions)
+            this._analyticsService.getHighestRated(PAGINATION_DEFAULTS),
+            this._analyticsService.getLowestRated(PAGINATION_DEFAULTS)
         ])
         .pipe(
             (

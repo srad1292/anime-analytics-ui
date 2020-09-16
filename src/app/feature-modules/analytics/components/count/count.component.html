@@ -1,0 +1,9 @@
+<div class="count-container">
+    <h2 class="title">{{title}}</h2>
+    <p *ngIf="!isFloat" class="count">
+        {{ count ? count : '- - -' }}
+    </p>
+    <p *ngIf="!!isFloat" class="count">
+        {{ count ? (count | number:'1.2-2')  : '- - -' }}
+    </p>
+</div>
