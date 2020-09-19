@@ -8,6 +8,7 @@ import { OverviewResolver } from './resolvers/overview-resolver';
 import { CountComponent } from './components/count/count.component';
 import { HighestRatedComponent } from './components/highest-rated/highest-rated.component';
 import { LowestRatedComponent } from './components/lowest-rated/lowest-rated.component';
+import { GraphsModule } from 'src/app/graphs/graphs.module';
 
 
 
@@ -21,6 +22,7 @@ import { LowestRatedComponent } from './components/lowest-rated/lowest-rated.com
   imports: [
     CommonModule,
     FlexLayoutModule,
+    GraphsModule,
     RouterModule.forChild(analyticsRoutes),
   ],
   providers: [
