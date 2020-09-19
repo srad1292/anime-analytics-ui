@@ -16,6 +16,15 @@
     </div>    
 </div>
 
+<div class="graph-component-container">
+    <app-bar-graph
+        [graphData]="ratingCountData"
+        canvasId="ratingCountCanvas"
+        title="Count of Anime Per Rating"
+    ></app-bar-graph>
+</div>
+
+
 <div class="rating-list-container">
     <app-highest-rated [highestRated]="overviewData?.highestRated"></app-highest-rated>
 </div>
@@ -23,5 +32,6 @@
 <div class="rating-list-container">
     <app-lowest-rated [lowestRated]="overviewData?.lowestRated"></app-lowest-rated>
 </div>
+
 
 
