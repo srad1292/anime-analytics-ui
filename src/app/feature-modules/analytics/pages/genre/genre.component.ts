@@ -4,6 +4,7 @@ import { GenreCounts, GenreCount } from '../../models/genre-counts.interface';
 import { IBarGraphData } from 'src/app/graphs/models/bar-graph-data.interface';
 import { getColors } from 'src/app/graphs/utils/get-colors.util';
 import { BarYTicks } from 'src/app/graphs/models/bar-y-ticks.interface';
+import { IDoughnutGraphData } from 'src/app/graphs/models/doughnut-graph-data.interface';
 
 @Component({
   selector: 'app-genre',
@@ -18,6 +19,8 @@ export class GenreComponent implements OnInit {
 
   genreAverageGraph: IBarGraphData;
 
+  genreFrequencyGraph: IDoughnutGraphData;
+
   constructor(private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,6 +29,7 @@ export class GenreComponent implements OnInit {
     
     this.genreCountGraph = this._buildCountOfGenreGraph(genres);
     this.genreAverageGraph = this._buildAverageRatingOfGenreGraph(genres);
+    this.genreFrequencyGraph = this._buildFrequencyOfGenreGraph(genres);
   }
   
   private _buildCountOfGenreGraph(genres: GenreCount[]): IBarGraphData {
@@ -66,5 +70,22 @@ export class GenreComponent implements OnInit {
       yTicks
     };
   }
+
+  private _buildFrequencyOfGenreGraph(genres: GenreCount[]): IDoughnutGraphData {
+    let labels: string[] = [];
+    let values: number[] = [];
+    genres.forEach((genre: GenreCount) => {
+      labels.push(`${genre.name}`);
+      values.push(genre.count);
+    });
+
+    return {
+      labels,
+      values,
+      colors: getColors(labels),
+      dataLabel: "Frequency"
+    };
+  }
+  
 
 }

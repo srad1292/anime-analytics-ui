@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarGraphComponent } from './components/bar-graph/bar-graph.component';
+import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
 
 @NgModule({
   declarations: [
-    BarGraphComponent
+    BarGraphComponent,
+    DoughnutGraphComponent
   ],
   exports: [
-    BarGraphComponent
+    BarGraphComponent,
+    DoughnutGraphComponent
   ],
   imports: [
     CommonModule,
