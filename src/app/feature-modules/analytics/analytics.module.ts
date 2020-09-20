@@ -11,6 +11,8 @@ import { LowestRatedComponent } from './components/lowest-rated/lowest-rated.com
 import { GraphsModule } from 'src/app/graphs/graphs.module';
 import { GenreComponent } from './pages/genre/genre.component';
 import { GenreResolver } from './resolvers/genre.resolver';
+import { StudioComponent } from './pages/studio/studio.component';
+import { StudioResolver } from './resolvers/studio.resolver';
 
 
 
@@ -20,7 +22,8 @@ import { GenreResolver } from './resolvers/genre.resolver';
     CountComponent,
     HighestRatedComponent,
     LowestRatedComponent,
-    GenreComponent
+    GenreComponent,
+    StudioComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { GenreResolver } from './resolvers/genre.resolver';
   providers: [
     OverviewResolver,
     GenreResolver,
+    StudioResolver,
   ]
 })
 export class AnalyticsModule { }
