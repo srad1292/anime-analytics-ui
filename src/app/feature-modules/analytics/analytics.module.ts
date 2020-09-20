@@ -9,6 +9,8 @@ import { CountComponent } from './components/count/count.component';
 import { HighestRatedComponent } from './components/highest-rated/highest-rated.component';
 import { LowestRatedComponent } from './components/lowest-rated/lowest-rated.component';
 import { GraphsModule } from 'src/app/graphs/graphs.module';
+import { GenreComponent } from './pages/genre/genre.component';
+import { GenreResolver } from './resolvers/genre.resolver';
 
 
 
@@ -17,7 +19,8 @@ import { GraphsModule } from 'src/app/graphs/graphs.module';
     OverviewComponent,
     CountComponent,
     HighestRatedComponent,
-    LowestRatedComponent
+    LowestRatedComponent,
+    GenreComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ import { GraphsModule } from 'src/app/graphs/graphs.module';
     RouterModule.forChild(analyticsRoutes),
   ],
   providers: [
-    OverviewResolver
+    OverviewResolver,
+    GenreResolver,
   ]
 })
 export class AnalyticsModule { }

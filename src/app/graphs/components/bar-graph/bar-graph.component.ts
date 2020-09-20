@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { IBarGraphData } from '../../models/bar-graph-data.interface';
+import { BarYTicks } from '../../models/bar-y-ticks.interface';
 
 @Component({
   selector: 'app-bar-graph',
@@ -40,7 +41,7 @@ export class BarGraphComponent implements OnInit {
           {  
             label: this.graphData?.dataLabel,
             data: this.graphData?.values,  
-            // borderColor: '#3cba9f',  
+            borderColor: '#3cba9f',  
             backgroundColor: this.graphData?.colors,
             fill: true  
           }, 
@@ -57,7 +58,8 @@ export class BarGraphComponent implements OnInit {
             display: true  
           }],  
           yAxes: [{  
-            display: true  
+            display: true,
+            ticks: this.graphData?.yTicks || {}  
           }],  
         }  
       }  
