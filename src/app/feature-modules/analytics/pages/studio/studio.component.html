@@ -1,0 +1,27 @@
+<h1>Studios</h1>
+
+<div class="studio-graphs">
+    <div class="graph-component-container">
+        <app-bar-graph
+            [graphData]="studioCountGraph"
+            canvasId="studioCountCanvas"
+            title="Count of Anime Per Studio"
+        ></app-bar-graph>
+    </div>
+
+    <div class="graph-component-container">
+        <app-bar-graph
+            [graphData]="studioAverageGraph"
+            canvasId="studioAverageCanvas"
+            title="Average Rating of Anime Per Studio"
+        ></app-bar-graph>
+    </div>
+
+    <div class="graph-component-container">
+        <app-doughnut-graph
+            [graphData]="studioFrequencyGraph"
+            canvasId="studioFrequencyCanvas"
+            title="Frequency of Studio"
+        ></app-doughnut-graph>
+    </div>
+</div>
