@@ -1,22 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Chart } from 'chart.js';
-import { IBarGraphData } from '../../models/bar-graph-data.interface';
-import { BarYTicks } from '../../models/bar-y-ticks.interface';
+import { IDoughnutGraphData } from '../../models/doughnut-graph-data.interface';
 
 @Component({
-  selector: 'app-bar-graph',
-  templateUrl: './bar-graph.component.html',
-  styleUrls: ['./bar-graph.component.scss']
+  selector: 'app-doughnut-graph',
+  templateUrl: './doughnut-graph.component.html',
+  styleUrls: ['./doughnut-graph.component.scss']
 })
-export class BarGraphComponent implements OnInit {
+export class DoughnutGraphComponent implements OnInit {
 
-  @Input() graphData: IBarGraphData;
+  @Input() graphData: IDoughnutGraphData;
 
   @Input() canvasId: string;
 
   @Input() title: string;
 
-  barChart: Chart;
+  doughnutChart: Chart;
 
   constructor() { }
 
@@ -29,19 +28,19 @@ export class BarGraphComponent implements OnInit {
   }
 
   private _buildGraph() {
-    if (this.barChart) this.barChart.destroy();
+    if (this.doughnutChart) this.doughnutChart.destroy();
     
     console.log(this.graphData);
     console.log(this.canvasId);
-    this.barChart = new Chart(this.canvasId, {  
-      type: 'bar',  
+    this.doughnutChart = new Chart(this.canvasId, {  
+      type: 'doughnut',  
       data: {  
         labels: this.graphData?.labels,
         datasets: [  
           {  
             label: this.graphData?.dataLabel,
             data: this.graphData?.values,  
-            borderColor: '#3cba9f',  
+            // borderColor: '#3cba9f',  
             backgroundColor: this.graphData?.colors,
             fill: true  
           }, 
@@ -52,16 +51,7 @@ export class BarGraphComponent implements OnInit {
         maintainAspectRatio: false,
         legend: {  
           display: false  
-        },  
-        scales: {  
-          xAxes: [{  
-            display: true  
-          }],  
-          yAxes: [{  
-            display: true,
-            ticks: this.graphData?.yTicks || {}  
-          }],  
-        }  
+        }
       }  
     });  
   }
