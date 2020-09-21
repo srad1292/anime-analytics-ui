@@ -41,9 +41,9 @@ export class LineGraphComponent implements OnInit {
           {  
             label: this.graphData?.dataLabel,
             data: this.graphData?.values,  
-            // borderColor: '#3cba9f',  
+            borderColor: '#3cba9f',  
             // backgroundColor: this.graphData?.colors,
-            fill: true  
+            fill: false  
           }, 
         ]  
       },  
@@ -52,13 +52,16 @@ export class LineGraphComponent implements OnInit {
         maintainAspectRatio: false,
         legend: {  
           display: false  
-        },  
-        options: {
-          title: {
+        },
+        scales: {  
+          xAxes: [{  
+            display: true  
+          }],  
+          yAxes: [{  
             display: true,
-            text: this.title
-          }
-        } 
+            ticks: this.graphData?.yTicks || {}  
+          }],  
+        }
       }  
     });  
   }
