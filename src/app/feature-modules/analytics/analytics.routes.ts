@@ -6,7 +6,7 @@ import { GenreResolver } from './resolvers/genre.resolver';
 import { StudioComponent } from './pages/studio/studio.component';
 import { StudioResolver } from './resolvers/studio.resolver';
 import { TimeComponent } from './pages/time/time.component';
-import { FinishedYearResolver } from './resolvers/finished-year.resolver';
+import { TimeResolver } from './resolvers/time.resolver';
 
 export const analyticsRoutes: Routes = [
     {
@@ -34,7 +34,7 @@ export const analyticsRoutes: Routes = [
         path: 'dates',
         component: TimeComponent,
         resolve: {
-            finishedYearData: FinishedYearResolver
+            timeData: TimeResolver
         }
     },   
     {

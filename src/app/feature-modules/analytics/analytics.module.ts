@@ -14,7 +14,7 @@ import { GenreResolver } from './resolvers/genre.resolver';
 import { StudioComponent } from './pages/studio/studio.component';
 import { StudioResolver } from './resolvers/studio.resolver';
 import { TimeComponent } from './pages/time/time.component';
-import { FinishedYearResolver } from './resolvers/finished-year.resolver';
+import { TimeResolver } from './resolvers/time.resolver';
 
 
 
@@ -38,7 +38,7 @@ import { FinishedYearResolver } from './resolvers/finished-year.resolver';
     OverviewResolver,
     GenreResolver,
     StudioResolver,
-    FinishedYearResolver,
+    TimeResolver,
   ]
 })
 export class AnalyticsModule { }

@@ -16,4 +16,20 @@
             title="Average Rating of Anime Finished Per Year"
         ></app-line-graph>
     </div>
+
+    <div class="graph-component-container">
+        <app-line-graph
+            [graphData]="startedAiringYearCountGraph"
+            canvasId="startedAiringYearCountCanvas"
+            title="Count of Anime Finished Per Starting Air Date"
+        ></app-line-graph>
+    </div>
+
+    <div class="graph-component-container">
+        <app-line-graph
+            [graphData]="startedAiringYearAverageGraph"
+            canvasId="startedAiringYearAverageCanvas"
+            title="Average Rating of Anime By Starting Air Date"
+        ></app-line-graph>
+    </div>
 </div>
