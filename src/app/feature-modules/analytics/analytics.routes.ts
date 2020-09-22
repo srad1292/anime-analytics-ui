@@ -7,6 +7,8 @@ import { StudioComponent } from './pages/studio/studio.component';
 import { StudioResolver } from './resolvers/studio.resolver';
 import { TimeComponent } from './pages/time/time.component';
 import { TimeResolver } from './resolvers/time.resolver';
+import { ProducerComponent } from './pages/producer/producer.component';
+import { ProducerResolver } from './resolvers/producer.resolver';
 
 export const analyticsRoutes: Routes = [
     {
@@ -28,6 +30,13 @@ export const analyticsRoutes: Routes = [
         component: StudioComponent,
         resolve: {
             studioData: StudioResolver
+        }
+    },
+    {
+        path: 'producer',
+        component: ProducerComponent,
+        resolve: {
+            producerData: ProducerResolver
         }
     },
     {

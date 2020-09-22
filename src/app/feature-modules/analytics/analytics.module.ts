@@ -15,6 +15,8 @@ import { StudioComponent } from './pages/studio/studio.component';
 import { StudioResolver } from './resolvers/studio.resolver';
 import { TimeComponent } from './pages/time/time.component';
 import { TimeResolver } from './resolvers/time.resolver';
+import { ProducerComponent } from './pages/producer/producer.component';
+import { ProducerResolver } from './resolvers/producer.resolver';
 
 
 
@@ -26,7 +28,8 @@ import { TimeResolver } from './resolvers/time.resolver';
     LowestRatedComponent,
     GenreComponent,
     StudioComponent,
-    TimeComponent
+    TimeComponent,
+    ProducerComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +42,7 @@ import { TimeResolver } from './resolvers/time.resolver';
     GenreResolver,
     StudioResolver,
     TimeResolver,
+    ProducerResolver,
   ]
 })
 export class AnalyticsModule { }
