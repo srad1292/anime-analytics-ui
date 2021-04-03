@@ -29,12 +29,17 @@ export const appRoutes: Routes = [
         loadChildren: () => import('./feature-modules/analytics/analytics.module').then((m) => m.AnalyticsModule)
     },
     {
+        path: 'administration',
+        component: NavigationLayoutComponent,
+        loadChildren: () => import('./feature-modules/administration/administration.module').then((m) => m.AdministrationModule)
+    },
+    {
         path: '',
         pathMatch: 'full',
         redirectTo: 'analytics'
     },
     {
         path: '**',
-        component: TestComponent1Component
+        redirectTo: 'analytics'
     }
 ]
