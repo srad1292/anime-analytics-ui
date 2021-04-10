@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AnimeRatingComponent } from './pages/anime-rating/anime-rating.component';
 import { AnimeSearchComponent } from './pages/anime-search/anime-search.component';
+import { GetRatingResolver } from './resolvers/get-rating.resolver';
 
 export const administrationRoutes: Routes = [
     {
@@ -10,9 +11,9 @@ export const administrationRoutes: Routes = [
     {
         path: 'anime/:malId',
         component: AnimeRatingComponent,
-        // resolve: {
-        //     genreData: GenreResolver
-        // }
+        resolve: {
+            animeRatings: GetRatingResolver
+        }
     },
     {
         path: '',

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { administrationRoutes } from './administration.routes';
 import { AnimeSearchComponent } from './pages/anime-search/anime-search.component';
 import { AnimeRatingComponent } from './pages/anime-rating/anime-rating.component';
 import { AdministrationService } from './services/administration.service';
+import { GetRatingResolver } from './resolvers/get-rating.resolver';
 
 
 
@@ -17,10 +18,12 @@ import { AdministrationService } from './services/administration.service';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(administrationRoutes),
   ],
   providers: [
-    AdministrationService
+    AdministrationService,
+    GetRatingResolver,
   ]
 })
 export class AdministrationModule { }
