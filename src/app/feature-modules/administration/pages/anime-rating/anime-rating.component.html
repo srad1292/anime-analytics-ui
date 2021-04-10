@@ -1,0 +1,28 @@
+<ng-container *ngIf="!rating; else hasRating">
+    <div>No anime was found with this id. <span routerLink="/anime/administration/search">Back to list</span></div>
+</ng-container>
+
+<ng-template #hasRating>
+    <h2>{{rating.title}}</h2>
+    <a [href]="rating.url" target="_blank">View on MAL</a>
+
+    <div class="anime-image">
+        <img [src]="rating.imageUrl">
+    </div>
+    <div id="rating-form">
+        <form [formGroup]="form" (ngSubmit)="saveNewRating()">
+            <div class="input-container">
+                <label for="rating-score">Rating</label>
+                <select id="rating-score" name="rating-score" required formControlName="ratingScore">
+                    <option *ngFor="let ratingOption of ratingOptions" [value]="ratingOption">{{ratingOption}}</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="finished-date">Date Finished</label>
+                <input id="finished-date" name="finished-date" type="date" required formControlName="finishedDate">
+            </div>
+
+            <button type="submit" [disabled]="!!rating.ratingId">Save</button>
+        </form>
+    </div>
+</ng-template>

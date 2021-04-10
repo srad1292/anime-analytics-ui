@@ -1,0 +1,50 @@
+<h1>Search For Anime</h1>
+
+<input type="text" id="anime-search-input" placeholder="Anime Title" [(ngModel)]="animeTitleSearch">
+<button type="button" [disabled]="!animeTitleSearch.length" (click)="searchForAnime()">Search</button>
+
+<h2>
+    Anime Search Results.
+</h2>
+<div class="table-container" *ngIf="animeSearchResults.length">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns">
+                    {{ column }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entry of animeSearchResults">
+                <td>
+                    <span routerLink="/administration/anime/{{entry?.malId}}" target="_blank">{{entry?.title}}</span>
+                </td>
+
+                <td>
+                    {{entry?.synopsis}}
+                </td>
+
+                <td>
+                    {{entry?.score}}
+                </td>
+
+                <td>
+                    {{entry?.startDate}}
+                </td>
+
+                <td>
+                    {{entry?.endDate}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <div class="paginator">
+    <button  (click)="goToPreviousPage()" [disabled]="disablePrevious || loadingRatings">
+        <span>Previous</span>
+    </button>
+    <button  (click)="goToNextPage()" [disabled]="disableNext || loadingRatings">
+        <span>Next</span>
+    </button>
+</div> -->
