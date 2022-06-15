@@ -5,7 +5,9 @@ import { MalItem } from "./mal-item";
 export interface Anime {    
     malId: Number;    
     url: string;    
-    imageUrl?: string;    
+    imageUrl?: string;
+    jpgImageUrl?: string;    
+    webpImageUrl?: string;    
     trailerUrl?: string;    
     title: string;    
     titleEnglish?: string;    

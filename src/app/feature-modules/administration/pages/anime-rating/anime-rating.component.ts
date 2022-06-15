@@ -15,6 +15,7 @@ export class AnimeRatingComponent implements OnInit {
   rating: AnimeRating;
   ratingOptions: number[];
   form: FormGroup;
+  imageUrl: String;
 
 
   constructor(
@@ -34,6 +35,12 @@ export class AnimeRatingComponent implements OnInit {
         'ratingScore': new FormControl(this.rating.animeListScore, [Validators.required]),
         'finishedDate': new FormControl(this.rating.animeListFinishedDate, [Validators.required]),
       });
+      if(!this.rating.imageUrl && !!this.rating.jpgImageUrl) {
+        this.rating.imageUrl = this.rating.jpgImageUrl;
+      }
+      if(!this.rating.imageUrl && !!this.rating.webpImageUrl) {
+        this.rating.imageUrl = this.rating.webpImageUrl;
+      }
 
       console.log(this.form.value);
     }
