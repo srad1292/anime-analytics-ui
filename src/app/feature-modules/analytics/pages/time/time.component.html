@@ -1,35 +1,40 @@
-<h1>Dates</h1>
+<div id="time-container">
 
-<div class="finishedYear-graphs">
-    <div class="graph-component-container">
-        <app-line-graph
-            [graphData]="finishedYearCountGraph"
-            canvasId="finishedYearCountCanvas"
-            title="Count of Anime Finished Per Year"
-        ></app-line-graph>
-    </div>
+    <h1>Dates</h1>
 
-    <div class="graph-component-container">
-        <app-line-graph
-            [graphData]="finishedYearAverageGraph"
-            canvasId="finishedYearAverageCanvas"
-            title="Average Rating of Anime Finished Per Year"
-        ></app-line-graph>
-    </div>
+    <button class="btn btn-primary" (click)="exportPage();">Export To PDF</button>
 
-    <div class="graph-component-container">
-        <app-line-graph
-            [graphData]="startedAiringYearCountGraph"
-            canvasId="startedAiringYearCountCanvas"
-            title="Count of Anime Finished Per Starting Air Date"
-        ></app-line-graph>
-    </div>
+    <div class="finishedYear-graphs">
+        <div class="graph-component-container">
+            <app-line-graph
+                [graphData]="finishedYearCountGraph"
+                canvasId="finishedYearCountCanvas"
+                title="Count of Anime Finished Per Year"
+            ></app-line-graph>
+        </div>
 
-    <div class="graph-component-container">
-        <app-line-graph
-            [graphData]="startedAiringYearAverageGraph"
-            canvasId="startedAiringYearAverageCanvas"
-            title="Average Rating of Anime By Starting Air Date"
-        ></app-line-graph>
+        <div class="graph-component-container">
+            <app-line-graph
+                [graphData]="finishedYearAverageGraph"
+                canvasId="finishedYearAverageCanvas"
+                title="Average Rating of Anime Finished Per Year"
+            ></app-line-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-line-graph
+                [graphData]="startedAiringYearCountGraph"
+                canvasId="startedAiringYearCountCanvas"
+                title="Count of Anime Finished Per Starting Air Date"
+            ></app-line-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-line-graph
+                [graphData]="startedAiringYearAverageGraph"
+                canvasId="startedAiringYearAverageCanvas"
+                title="Average Rating of Anime By Starting Air Date"
+            ></app-line-graph>
+        </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ import { IDoughnutGraphData } from 'src/app/graphs/models/doughnut-graph-data.in
 import { ActivatedRoute } from '@angular/router';
 import { getColors } from 'src/app/graphs/utils/get-colors.util';
 import { BarYTicks } from 'src/app/graphs/models/bar-y-ticks.interface';
+import { ExportPageService } from '../../services/export_page.service';
 
 @Component({
   selector: 'app-studio',
@@ -21,7 +22,10 @@ export class StudioComponent implements OnInit {
 
   studioFrequencyGraph: IDoughnutGraphData;
 
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _exportPageService: ExportPageService
+  ) { }
 
   ngOnInit(): void {
     this.studioData = this._activatedRoute.snapshot.data.studioData;
@@ -30,6 +34,12 @@ export class StudioComponent implements OnInit {
     this.studioCountGraph = this._buildCountOfStudioGraph(studios);
     this.studioAverageGraph = this._buildAverageRatingOfStudioGraph(studios);
     this.studioFrequencyGraph = this._buildFrequencyOfStudioGraph(studios);
+  }
+
+  public exportPage(): void {
+    let containerId: String = 'studio-container';
+    this._exportPageService.downloadPdf(containerId, 'studio');
+    this._exportPageService.downloadPng(containerId, 'studio');
   }
   
   private _buildCountOfStudioGraph(studios: StudioCount[]): IBarGraphData {

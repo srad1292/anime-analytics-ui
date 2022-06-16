@@ -1,37 +1,42 @@
-<h1>Overview</h1>
+<div class="main-container" id="overview-container" #overviewContainer>
+    <h1>Overview</h1>
 
-<div>
-    <div fxFlex="100%" fxFlexLayout="row" fxLayoutGap="1.5rem">
-        <div fxFlex="0 0 calc(25%-1.5rem)">
-            <app-count title="Total Completed" [count]="overviewCounts?.totalCount"></app-count>
-        </div>
+    <button class="btn btn-primary" (click)="exportPage();">Export To PDF</button>
     
-        <div fxFlex="0 0 calc(25%-1.5rem)">
-            <app-count title="Total Rated" [count]="overviewCounts?.ratedCount"></app-count>
-        </div>
+    <div>
+        <div fxFlex="100%" fxFlexLayout="row" fxLayoutGap="1.5rem">
+            <div fxFlex="0 0 calc(25%-1.5rem)">
+                <app-count title="Total Completed" [count]="overviewCounts?.totalCount"></app-count>
+            </div>
+        
+            <div fxFlex="0 0 calc(25%-1.5rem)">
+                <app-count title="Total Rated" [count]="overviewCounts?.ratedCount"></app-count>
+            </div>
 
-        <div fxFlex="0 0 calc(25%-1.5rem)">
-            <app-count title="Average Rating" isFloat="true" [count]="overviewCounts?.averageRating"></app-count>
-        </div>
-    </div>    
+            <div fxFlex="0 0 calc(25%-1.5rem)">
+                <app-count title="Average Rating" isFloat="true" [count]="overviewCounts?.averageRating"></app-count>
+            </div>
+        </div>    
+    </div>
+
+    <div class="graph-component-container">
+        <app-bar-graph
+            [graphData]="ratingCountData"
+            canvasId="ratingCountCanvas"
+            title="Count of Anime Per Rating"
+        ></app-bar-graph>
+    </div>
+
+
+    <div class="rating-list-container">
+        <app-highest-rated [highestRated]="overviewData?.highestRated"></app-highest-rated>
+    </div>
+
+    <div class="rating-list-container">
+        <app-lowest-rated [lowestRated]="overviewData?.lowestRated"></app-lowest-rated>
+    </div>
 </div>
 
-<div class="graph-component-container">
-    <app-bar-graph
-        [graphData]="ratingCountData"
-        canvasId="ratingCountCanvas"
-        title="Count of Anime Per Rating"
-    ></app-bar-graph>
-</div>
-
-
-<div class="rating-list-container">
-    <app-highest-rated [highestRated]="overviewData?.highestRated"></app-highest-rated>
-</div>
-
-<div class="rating-list-container">
-    <app-lowest-rated [lowestRated]="overviewData?.lowestRated"></app-lowest-rated>
-</div>
 
 
 

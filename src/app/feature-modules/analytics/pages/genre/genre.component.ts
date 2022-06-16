@@ -5,6 +5,7 @@ import { IBarGraphData } from 'src/app/graphs/models/bar-graph-data.interface';
 import { getColors } from 'src/app/graphs/utils/get-colors.util';
 import { BarYTicks } from 'src/app/graphs/models/bar-y-ticks.interface';
 import { IDoughnutGraphData } from 'src/app/graphs/models/doughnut-graph-data.interface';
+import { ExportPageService } from '../../services/export_page.service';
 
 @Component({
   selector: 'app-genre',
@@ -21,7 +22,10 @@ export class GenreComponent implements OnInit {
 
   genreFrequencyGraph: IDoughnutGraphData;
 
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _exportPageService: ExportPageService
+  ) { }
 
   ngOnInit(): void {
     this.genreData = this._activatedRoute.snapshot.data.genreData;
@@ -30,6 +34,12 @@ export class GenreComponent implements OnInit {
     this.genreCountGraph = this._buildCountOfGenreGraph(genres);
     this.genreAverageGraph = this._buildAverageRatingOfGenreGraph(genres);
     this.genreFrequencyGraph = this._buildFrequencyOfGenreGraph(genres);
+  }
+
+  public exportPage(): void {
+    let containerId: String = 'genre-container';
+    this._exportPageService.downloadPdf(containerId, 'genre');
+    this._exportPageService.downloadPng(containerId, 'genre');
   }
   
   private _buildCountOfGenreGraph(genres: GenreCount[]): IBarGraphData {

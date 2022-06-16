@@ -1,27 +1,32 @@
-<h1>Producers</h1>
+<div id="producer-container">
+    <h1>Producers</h1>
 
-<div class="producer-graphs">
-    <div class="graph-component-container">
-        <app-bar-graph
-            [graphData]="producerCountGraph"
-            canvasId="producerCountCanvas"
-            title="Count of Anime Per Producer"
-        ></app-bar-graph>
+    <button class="btn btn-primary" (click)="exportPage();">Export To PDF</button>
+
+    <div class="producer-graphs">
+        <div class="graph-component-container">
+            <app-bar-graph
+                [graphData]="producerCountGraph"
+                canvasId="producerCountCanvas"
+                title="Count of Anime Per Producer"
+            ></app-bar-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-bar-graph
+                [graphData]="producerAverageGraph"
+                canvasId="producerAverageCanvas"
+                title="Average Rating of Anime Per Producer"
+            ></app-bar-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-doughnut-graph
+                [graphData]="producerFrequencyGraph"
+                canvasId="producerFrequencyCanvas"
+                title="Frequency of Producer"
+            ></app-doughnut-graph>
+        </div>
     </div>
 
-    <div class="graph-component-container">
-        <app-bar-graph
-            [graphData]="producerAverageGraph"
-            canvasId="producerAverageCanvas"
-            title="Average Rating of Anime Per Producer"
-        ></app-bar-graph>
-    </div>
-
-    <div class="graph-component-container">
-        <app-doughnut-graph
-            [graphData]="producerFrequencyGraph"
-            canvasId="producerFrequencyCanvas"
-            title="Frequency of Producer"
-        ></app-doughnut-graph>
-    </div>
 </div>
