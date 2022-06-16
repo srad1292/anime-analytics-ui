@@ -7,6 +7,7 @@ import { getColors } from 'src/app/graphs/utils/get-colors.util';
 import { BarYTicks } from 'src/app/graphs/models/bar-y-ticks.interface';
 import { ITimeResolver } from '../../resolvers/time.resolver';
 import { StartedAiringYearCounts, StartedAiringYearCount } from '../../models/start-air-date-counts.interface';
+import { ExportPageService } from '../../services/export_page.service';
 
 @Component({
   selector: 'app-time',
@@ -23,7 +24,10 @@ export class TimeComponent implements OnInit {
   startedAiringYearCountGraph: IBarGraphData;
   startedAiringYearAverageGraph: IBarGraphData;
 
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _exportPageService: ExportPageService
+  ) { }
 
   ngOnInit(): void {
     const timeData: ITimeResolver = this._activatedRoute.snapshot.data.timeData || {};
@@ -37,6 +41,12 @@ export class TimeComponent implements OnInit {
     const startingYears: StartedAiringYearCount[] = this.startedAiringYearData?.startedAiringYear || [];
     this.startedAiringYearCountGraph = this._buildCountOfStartedAiringYearGraph(startingYears);
     this.startedAiringYearAverageGraph = this._buildAverageRatingOfStartedAiringYearGraph(startingYears);
+  }
+
+  public exportPage(): void {
+    let containerId: String = 'time-container';
+    this._exportPageService.downloadPdf(containerId, 'time');
+    this._exportPageService.downloadPng(containerId, 'time');
   }
   
   private _buildCountOfFinishedYearGraph(finishedYears: FinishedYearCount[]): IBarGraphData {

@@ -1,27 +1,33 @@
-<h1>Studios</h1>
+<div id="studio-container">
 
-<div class="studio-graphs">
-    <div class="graph-component-container">
-        <app-bar-graph
+    <h1>Studios</h1>
+
+    <button class="btn btn-primary" (click)="exportPage();">Export To PDF</button>
+    
+    <div class="studio-graphs">
+        <div class="graph-component-container">
+            <app-bar-graph
             [graphData]="studioCountGraph"
             canvasId="studioCountCanvas"
             title="Count of Anime Per Studio"
-        ></app-bar-graph>
-    </div>
-
-    <div class="graph-component-container">
-        <app-bar-graph
+            ></app-bar-graph>
+        </div>
+        
+        <div class="graph-component-container">
+            <app-bar-graph
             [graphData]="studioAverageGraph"
             canvasId="studioAverageCanvas"
             title="Average Rating of Anime Per Studio"
-        ></app-bar-graph>
-    </div>
-
-    <div class="graph-component-container">
-        <app-doughnut-graph
+            ></app-bar-graph>
+        </div>
+        
+        <div class="graph-component-container">
+            <app-doughnut-graph
             [graphData]="studioFrequencyGraph"
             canvasId="studioFrequencyCanvas"
             title="Frequency of Studio"
-        ></app-doughnut-graph>
+            ></app-doughnut-graph>
+        </div>
     </div>
+
 </div>

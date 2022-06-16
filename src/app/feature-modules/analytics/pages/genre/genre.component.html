@@ -1,27 +1,32 @@
-<h1>Genres</h1>
+<div id="genre-container">
 
-<div class="genre-graphs">
-    <div class="graph-component-container">
-        <app-bar-graph
-            [graphData]="genreCountGraph"
-            canvasId="genreCountCanvas"
-            title="Count of Anime Per Genre"
-        ></app-bar-graph>
-    </div>
+    <h1>Genres</h1>
 
-    <div class="graph-component-container">
-        <app-bar-graph
-            [graphData]="genreAverageGraph"
-            canvasId="genreAverageCanvas"
-            title="Average Rating of Anime Per Genre"
-        ></app-bar-graph>
-    </div>
+    <button class="btn btn-primary" (click)="exportPage();">Export To PDF</button>
 
-    <div class="graph-component-container">
-        <app-doughnut-graph
-            [graphData]="genreFrequencyGraph"
-            canvasId="genreFrequencyCanvas"
-            title="Frequency of Genre"
-        ></app-doughnut-graph>
+    <div class="genre-graphs">
+        <div class="graph-component-container">
+            <app-bar-graph
+                [graphData]="genreCountGraph"
+                canvasId="genreCountCanvas"
+                title="Count of Anime Per Genre"
+            ></app-bar-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-bar-graph
+                [graphData]="genreAverageGraph"
+                canvasId="genreAverageCanvas"
+                title="Average Rating of Anime Per Genre"
+            ></app-bar-graph>
+        </div>
+
+        <div class="graph-component-container">
+            <app-doughnut-graph
+                [graphData]="genreFrequencyGraph"
+                canvasId="genreFrequencyCanvas"
+                title="Frequency of Genre"
+            ></app-doughnut-graph>
+        </div>
     </div>
 </div>
